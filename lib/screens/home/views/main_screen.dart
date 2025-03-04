@@ -10,7 +10,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
       child: Column(
         children: [
           Row(
@@ -104,6 +104,7 @@ class MainScreen extends StatelessWidget {
                     horizontal: 20,
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
@@ -114,7 +115,7 @@ class MainScreen extends StatelessWidget {
                                 color: Colors.white30, shape: BoxShape.circle),
                             child: Center(
                                 child: Icon(
-                              CupertinoIcons.arrow_down,
+                              CupertinoIcons.arrow_up,
                               size: 12,
                               color: Colors.greenAccent,
                             )),
@@ -220,22 +221,49 @@ class MainScreen extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            width: 50,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: Colors.yellow, shape: BoxShape.circle),
+                          Row(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                    color: Colors.yellow,
+                                    shape: BoxShape.circle),
+                              ),
+                              SizedBox(
+                                width: 12,
+                              ),
+                              Text(
+                                "Food",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
                           ),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          Text(
-                            "Food",
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Theme.of(context).colorScheme.onSurface,
-                                fontWeight: FontWeight.w500),
+                          Column(
+                            children: [
+                              Text(
+                                "-\$45,00",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                "Hoje",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ],
                           )
                         ],
                       ),
