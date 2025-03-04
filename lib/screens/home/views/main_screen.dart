@@ -233,7 +233,7 @@ class MainScreen extends StatelessWidget {
                           Text(
                             "Food",
                             style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 color: Theme.of(context).colorScheme.onSurface,
                                 fontWeight: FontWeight.w500),
                           )
