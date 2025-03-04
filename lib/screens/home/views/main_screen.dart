@@ -106,7 +106,6 @@ class MainScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             width: 25,
@@ -181,7 +180,7 @@ class MainScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 40,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -208,6 +207,44 @@ class MainScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 3,
+              itemBuilder: (context, int i) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                color: Colors.yellow, shape: BoxShape.circle),
+                          ),
+                          SizedBox(
+                            width: 12,
+                          ),
+                          Text(
+                            "Food",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Theme.of(context).colorScheme.onSurface,
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          )
         ],
       ),
     ));
