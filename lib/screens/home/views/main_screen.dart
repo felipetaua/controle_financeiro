@@ -57,7 +57,8 @@ class MainScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.bell))
+              IconButton(
+                  onPressed: () {}, icon: const Icon(CupertinoIcons.bell))
             ],
           ),
           const SizedBox(
@@ -80,7 +81,7 @@ class MainScreen extends StatelessWidget {
                   BoxShadow(
                       blurRadius: 4,
                       color: Colors.grey.shade300,
-                      offset: Offset(5, 5))
+                      offset: const Offset(5, 5))
                 ]),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -111,9 +112,9 @@ class MainScreen extends StatelessWidget {
                           Container(
                             width: 25,
                             height: 25,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.white30, shape: BoxShape.circle),
-                            child: Center(
+                            child: const Center(
                                 child: Icon(
                               CupertinoIcons.arrow_up,
                               size: 12,
@@ -145,9 +146,9 @@ class MainScreen extends StatelessWidget {
                           Container(
                             width: 25,
                             height: 25,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.white30, shape: BoxShape.circle),
-                            child: Center(
+                            child: const Center(
                                 child: Icon(
                               CupertinoIcons.arrow_down,
                               size: 12,
