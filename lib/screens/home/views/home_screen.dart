@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
               BottomNavigationBarItem(
                   icon: Icon(CupertinoIcons.home), label: 'Home'),
               BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.graph_square_fill), label: 'Stats')
+                  icon: Icon(CupertinoIcons.graph_square), label: 'Stats')
             ]),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -57,14 +57,14 @@ class MainScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.settings))
+              IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.bell))
             ],
           ),
           const SizedBox(
             height: 20,
           ),
           Container(
-            width: double.infinity,
+            width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.width / 2,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -75,35 +75,139 @@ class MainScreen extends StatelessWidget {
                   ],
                   transform: const GradientRotation(pi / 4),
                 ),
-                borderRadius: BorderRadius.circular(25)),
+                borderRadius: BorderRadius.circular(25),
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 4,
+                      color: Colors.grey.shade300,
+                      offset: Offset(5, 5))
+                ]),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Total Balance'),
-                Text('R 1500,00'),
-                Row(
-                  children: [
-                    Container(
-                      width: 20,
-                      height: 20,
-                      decoration: BoxDecoration(
-                          color: Colors.white30, shape: BoxShape.circle),
-                      child: Center(
-                          child: Icon(
-                        CupertinoIcons.arrow_down,
-                        size: 12,
-                      )),
-                    ),
-                    Column(
-                      children: [
-                        const Text('Income'),
-                        const Text('R 2100,00'),
-                      ],
-                    )
-                  ],
-                )
+                const Text('Saldo Total',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600)),
+                SizedBox(
+                  height: 12,
+                ),
+                const Text('R\$ 1500,00',
+                    style: TextStyle(
+                        fontSize: 40,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold)),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12,
+                    horizontal: 20,
+                  ),
+                  child: Row(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 25,
+                            height: 25,
+                            decoration: BoxDecoration(
+                                color: Colors.white30, shape: BoxShape.circle),
+                            child: Center(
+                                child: Icon(
+                              CupertinoIcons.arrow_down,
+                              size: 12,
+                              color: Colors.greenAccent,
+                            )),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Renda',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400)),
+                          Text('R\$ 2100,00',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600)),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            width: 25,
+                            height: 25,
+                            decoration: BoxDecoration(
+                                color: Colors.white30, shape: BoxShape.circle),
+                            child: Center(
+                                child: Icon(
+                              CupertinoIcons.arrow_down,
+                              size: 12,
+                              color: Colors.red,
+                            )),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Despesas',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400)),
+                          Text('R\$ 1800,00',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600)),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
-          )
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Transações',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontWeight: FontWeight.bold),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Text(
+                  'View All',
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).colorScheme.outline,
+                      fontWeight: FontWeight.w400),
+                ),
+              )
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
         ],
       ),
     ));
