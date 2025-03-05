@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             showSelectedLabels: false,
             showUnselectedLabels: false,
             elevation: 3,
-            items: const [
+            items: [
               BottomNavigationBarItem(
                   icon: Icon(CupertinoIcons.home,
                       color: index == 0 ? selectedItem : unselectedItem),
