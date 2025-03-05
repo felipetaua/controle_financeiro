@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:controle_financeiro/data/data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -211,7 +212,7 @@ class MainScreen extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: 7,
+              itemCount: transationsData.length,
               itemBuilder: (context, int i) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 16.0),
@@ -233,20 +234,21 @@ class MainScreen extends StatelessWidget {
                                     width: 50,
                                     height: 50,
                                     decoration: BoxDecoration(
-                                        color: Colors.yellow[700],
+                                        color: transationsData[i]['color'],
                                         shape: BoxShape.circle),
                                   ),
-                                  const Icon(
-                                    Icons.fastfood,
-                                    color: Colors.white,
-                                  )
+                                  transationsData[i]['icon'],
+                                  // const Icon(
+                                  //  Icons.fastfood,
+                                  //  color: Colors.white,
+                                  //)
                                 ],
                               ),
                               SizedBox(
                                 width: 12,
                               ),
                               Text(
-                                "Food",
+                                transationsData[i]['name'],
                                 style: TextStyle(
                                     fontSize: 14,
                                     color:
@@ -258,7 +260,7 @@ class MainScreen extends StatelessWidget {
                           Column(
                             children: [
                               Text(
-                                "-\$45,00",
+                                transationsData[i]['totalAlmount'],
                                 style: TextStyle(
                                     fontSize: 14,
                                     color:
@@ -266,7 +268,7 @@ class MainScreen extends StatelessWidget {
                                     fontWeight: FontWeight.w400),
                               ),
                               Text(
-                                "Hoje",
+                                transationsData[i]['date'],
                                 style: TextStyle(
                                     fontSize: 14,
                                     color:
