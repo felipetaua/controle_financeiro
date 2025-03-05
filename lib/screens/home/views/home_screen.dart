@@ -19,8 +19,15 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   int index = 0;
+  late Color selectedItem = Colors.blue;
+  Color unselectedItem = Colors.grey;
 
   @override
+  void initState() {
+    selectedItem = Theme.of(context).colorScheme.primary;
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(),
@@ -32,15 +39,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 index = value;
               });
             },
-            backgroundColor: Colors.white,
             showSelectedLabels: false,
             showUnselectedLabels: false,
             elevation: 3,
             items: const [
               BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.home), label: 'Home'),
+                  icon: Icon(CupertinoIcons.home,
+                      color: index == 0 ? selectedItem : unselectedItem),
+                  label: 'Home'),
               BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.graph_square), label: 'Stats')
+                  icon: Icon(CupertinoIcons.graph_square,
+                      color: index == 0 ? selectedItem : unselectedItem),
+                  label: 'Stats')
             ]),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
