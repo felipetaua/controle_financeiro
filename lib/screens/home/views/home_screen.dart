@@ -23,11 +23,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Color unselectedItem = Colors.grey;
 
   @override
-  void initState() {
-    selectedItem = Theme.of(context).colorScheme.primary;
-    super.initState();
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(),
@@ -49,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   label: 'Home'),
               BottomNavigationBarItem(
                   icon: Icon(CupertinoIcons.graph_square,
-                      color: index == 0 ? selectedItem : unselectedItem),
+                      color: index == 1 ? selectedItem : unselectedItem),
                   label: 'Stats')
             ]),
       ),
