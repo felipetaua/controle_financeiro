@@ -19,17 +19,16 @@ class StatScreen extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            SizedBox(
+            Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                // color: Colors.red,
-                child: MyChart()
-                //BarChart(
-                //  BarChartData(
-
-                // )
-                //),
-                )
+                height: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12)),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 20, 12, 12),
+                  child: const MyChart(),
+                ))
           ],
         ),
       ),

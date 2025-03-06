@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,21 @@ class _MyWidgetState extends State<MyChart> {
   }
 
   BarChartGroupData makeGroupData(int x, double y) {
-    return BarChartGroupData(x: x);
+    return BarChartGroupData(x: x, barRods: [
+      BarChartRodData(
+          toY: y,
+          gradient: LinearGradient(
+            colors: [
+              Theme.of(context).colorScheme.primary,
+              Theme.of(context).colorScheme.secondary,
+              Theme.of(context).colorScheme.tertiary,
+            ],
+            transform: const GradientRotation(pi / 40),
+          ),
+          width: 20,
+          backDrawRodData: BackgroundBarChartRodData(
+              show: true, toY: 5, color: Colors.grey.shade300))
+    ]);
   }
 
   List<BarChartGroupData> showingGroups() => List.generate(8, (i) {
@@ -56,7 +71,12 @@ class _MyWidgetState extends State<MyChart> {
           reservedSize: 38,
           getTitlesWidget: getTitles,
         )),
-        leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: true)),
+        leftTitles: AxisTitles(
+            sideTitles: SideTitles(
+          showTitles: true,
+          reservedSize: 38,
+          getTitlesWidget: leftTitles,
+        )),
       ),
       borderData: FlBorderData(show: false),
       gridData: const FlGridData(show: true),
