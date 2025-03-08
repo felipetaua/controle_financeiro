@@ -123,7 +123,7 @@ class _MyChartState extends State<MyChart> {
         break;
     }
     return SideTitleWidget(
-      space: 16,
+      space: 15,
       child: text,
       meta: meta,
     );
@@ -137,15 +137,15 @@ class _MyChartState extends State<MyChart> {
     );
     String text;
     if (value == 0) {
-      text = '1K';
+      text = 'R\$ 500';
     } else if (value == 2) {
-      text = '2K';
+      text = '1 Mil';
     } else if (value == 3) {
-      text = '3K';
+      text = '2 Mil';
     } else if (value == 4) {
-      text = '4K';
+      text = '3 Mil';
     } else if (value == 5) {
-      text = '5K';
+      text = '4 Mil';
     } else {
       return Container();
     }
