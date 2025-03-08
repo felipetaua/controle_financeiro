@@ -1,5 +1,7 @@
-import 'package:controle_financeiro/screens/stats/chart.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+
+import 'chart.dart';
 
 class StatScreen extends StatelessWidget {
   const StatScreen({super.key});
@@ -12,22 +14,20 @@ class StatScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Transações',
+            const Text(
+              'Transactions',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12)),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 20, 12, 12),
-                  child: const MyChart(),
+                child: const Padding(
+                  padding: EdgeInsets.fromLTRB(12, 20, 12, 12),
+                  child: MyChart(),
                 ))
           ],
         ),

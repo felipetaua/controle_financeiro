@@ -6,10 +6,10 @@ class MyChart extends StatefulWidget {
   const MyChart({super.key});
 
   @override
-  State<MyChart> createState() => _MyWidgetState();
+  State<MyChart> createState() => _MyChartState();
 }
 
-class _MyWidgetState extends State<MyChart> {
+class _MyChartState extends State<MyChart> {
   @override
   Widget build(BuildContext context) {
     return BarChart(
@@ -69,28 +69,28 @@ class _MyWidgetState extends State<MyChart> {
             sideTitles: SideTitles(
           showTitles: true,
           reservedSize: 38,
-          getTitlesWidget: getTitles,
+          getTitlesWidget: getTiles,
         )),
         leftTitles: AxisTitles(
-            sideTitles: SideTitles(
-          showTitles: true,
-          reservedSize: 38,
-          getTitlesWidget: leftTitles,
-        )),
+          sideTitles: SideTitles(
+            showTitles: true,
+            reservedSize: 38,
+            getTitlesWidget: leftTitles,
+          ),
+        ),
       ),
       borderData: FlBorderData(show: false),
-      gridData: const FlGridData(show: true),
+      gridData: const FlGridData(show: false),
       barGroups: showingGroups(),
     );
   }
 
-  Widget getTitles(double value, TitleMeta meta) {
+  Widget getTiles(double value, TitleMeta meta) {
     const style = TextStyle(
       color: Colors.grey,
       fontWeight: FontWeight.bold,
       fontSize: 14,
     );
-
     Widget text;
 
     switch (value.toInt()) {
@@ -123,9 +123,9 @@ class _MyWidgetState extends State<MyChart> {
         break;
     }
     return SideTitleWidget(
-      axisSide: meta.axisSide,
       space: 16,
       child: text,
+      meta: meta,
     );
   }
 
@@ -137,22 +137,22 @@ class _MyWidgetState extends State<MyChart> {
     );
     String text;
     if (value == 0) {
-      text = 'R\$ 1K';
+      text = '1K';
     } else if (value == 2) {
-      text = 'R\$ 2K';
+      text = '2K';
     } else if (value == 3) {
-      text = 'R\$ 3K';
+      text = '3K';
     } else if (value == 4) {
-      text = 'R\$ 4K';
+      text = '4K';
     } else if (value == 5) {
-      text = 'R\$ 5K';
+      text = '5K';
     } else {
       return Container();
     }
     return SideTitleWidget(
-      axisSide: meta.axisSide,
       space: 0,
       child: Text(text, style: style),
+      meta: meta,
     );
   }
 }
