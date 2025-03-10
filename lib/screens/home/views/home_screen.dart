@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:controle_financeiro/screens/add_nav/views/add_nav.dart';
 import 'package:controle_financeiro/screens/home/views/main_screen.dart';
 import 'package:controle_financeiro/screens/stats/stats.dart';
 import 'package:flutter/cupertino.dart';
@@ -50,7 +51,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const addNavButton(),
+            ),
+          );
+        },
         shape: const CircleBorder(),
         child: Container(
           width: 60,
