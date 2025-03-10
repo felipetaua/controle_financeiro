@@ -137,15 +137,15 @@ class _MyChartState extends State<MyChart> {
     );
     String text;
     if (value == 0) {
-      text = 'R\$ 500';
-    } else if (value == 2) {
       text = '1 Mil';
-    } else if (value == 3) {
+    } else if (value == 2) {
       text = '2 Mil';
-    } else if (value == 4) {
+    } else if (value == 3) {
       text = '3 Mil';
-    } else if (value == 5) {
+    } else if (value == 4) {
       text = '4 Mil';
+    } else if (value == 5) {
+      text = '5 Mil';
     } else {
       return Container();
     }
