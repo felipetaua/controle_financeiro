@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class addNavButton extends StatelessWidget {
+class addNavButton extends StatefulWidget {
   const addNavButton({super.key});
+
+  @override
+  State<addNavButton> createState() => _addNavButtonState();
+}
+
+class _addNavButtonState extends State<addNavButton> {
+  TextEditingController gastosController = TextEditingController();
+  TextEditingController categoriaController = TextEditingController();
+  TextEditingController dataController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +32,7 @@ class addNavButton extends StatelessWidget {
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
               ),
               const SizedBox(
-                height: 16,
+                height: 32,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.7,
@@ -43,7 +52,7 @@ class addNavButton extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 16,
+                height: 32,
               ),
               TextFormField(
                 textAlignVertical: TextAlignVertical.center,
@@ -64,11 +73,13 @@ class addNavButton extends StatelessWidget {
                 height: 16,
               ),
               TextFormField(
+                readOnly: true,
                 textAlignVertical: TextAlignVertical.center,
                 onTap: () {
                   showDatePicker(
                       context: context,
                       firstDate: DateTime.now(),
+                      initialDate: DateTime.now(),
                       lastDate: DateTime.now().add(Duration(days: 365)));
                 },
                 decoration: InputDecoration(
@@ -87,7 +98,20 @@ class addNavButton extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-              TextButton(onPressed: () {}, child: Text('Salvar'))
+              SizedBox(
+                width: double.infinity,
+                height: kToolbarHeight,
+                child: TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12))),
+                    child: const Text(
+                      'Salvar',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    )),
+              )
             ],
           ),
         ),
