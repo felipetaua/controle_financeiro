@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl_browser.dart';
 
 class addNavButton extends StatefulWidget {
   const addNavButton({super.key});
@@ -12,6 +13,12 @@ class _addNavButtonState extends State<addNavButton> {
   TextEditingController gastosController = TextEditingController();
   TextEditingController categoriaController = TextEditingController();
   TextEditingController dataController = TextEditingController();
+
+  @override
+  void initState() {
+    dataController.text = DateFormat().format(DateTime.now());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +62,7 @@ class _addNavButtonState extends State<addNavButton> {
                 height: 32,
               ),
               TextFormField(
+                controller: categoriaController,
                 textAlignVertical: TextAlignVertical.center,
                 decoration: InputDecoration(
                     filled: true,
@@ -73,6 +81,7 @@ class _addNavButtonState extends State<addNavButton> {
                 height: 16,
               ),
               TextFormField(
+                controller: dataController,
                 readOnly: true,
                 textAlignVertical: TextAlignVertical.center,
                 onTap: () {
