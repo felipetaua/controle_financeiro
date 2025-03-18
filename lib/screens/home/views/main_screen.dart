@@ -122,25 +122,28 @@ class MainScreen extends StatelessWidget {
                               color: Colors.greenAccent,
                             )),
                           ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Renda',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400)),
+                              Text('R\$ 2100,00',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600)),
+                            ],
+                          ),
                         ],
                       ),
                       const SizedBox(
-                        width: 8,
-                      ),
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Renda',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400)),
-                          Text('R\$ 2100,00',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600)),
-                        ],
+                        width: 16, // Ajuste a largura conforme necessário
                       ),
                       Row(
                         children: [
@@ -156,26 +159,26 @@ class MainScreen extends StatelessWidget {
                               color: Colors.red,
                             )),
                           ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Despesas',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400)),
+                              Text('R\$ 1800,00',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600)),
+                            ],
+                          ),
                         ],
                       ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Despesas',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400)),
-                          Text('R\$ 1800,00',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600)),
-                        ],
-                      )
                     ],
                   ),
                 ),
