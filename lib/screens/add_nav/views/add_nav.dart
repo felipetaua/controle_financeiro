@@ -65,6 +65,36 @@ class _addNavButtonState extends State<addNavButton> {
               TextFormField(
                 controller: categoriaController,
                 textAlignVertical: TextAlignVertical.center,
+                readOnly: false,
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (ctx) {
+                        return AlertDialog(
+                          content: Column(
+                            children: [
+                              TextFormField(
+                                // controller: dataController,
+                                readOnly: true,
+                                textAlignVertical: TextAlignVertical.center,
+                                decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    prefixIcon: const Icon(
+                                      FontAwesomeIcons.calendar,
+                                      size: 16,
+                                      color: Colors.grey,
+                                    ),
+                                    hintText: ('Nome'),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                        borderSide: BorderSide.none)),
+                              ),
+                            ],
+                          ),
+                        );
+                      });
+                },
                 decoration: InputDecoration(
                     filled: true,
                     fillColor: Colors.white,
@@ -72,6 +102,14 @@ class _addNavButtonState extends State<addNavButton> {
                       FontAwesomeIcons.list,
                       size: 16,
                       color: Colors.grey,
+                    ),
+                    suffixIcon: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        FontAwesomeIcons.plus,
+                        size: 16,
+                        color: Colors.grey,
+                      ),
                     ),
                     hintText: ('Categoria'),
                     border: OutlineInputBorder(
