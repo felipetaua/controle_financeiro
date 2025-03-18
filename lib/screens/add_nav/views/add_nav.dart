@@ -16,7 +16,7 @@ class _addNavButtonState extends State<addNavButton> {
 
   @override
   void initState() {
-    dataController.text = DateFormat().format(DateTime.now());
+    dataController.text = DateFormat('dd/MM/yy').format(DateTime.now());
     super.initState();
   }
 
@@ -84,12 +84,19 @@ class _addNavButtonState extends State<addNavButton> {
                 controller: dataController,
                 readOnly: true,
                 textAlignVertical: TextAlignVertical.center,
-                onTap: () {
-                  showDatePicker(
+                onTap: () async {
+                  DateTime? newDate = await showDatePicker(
                       context: context,
                       firstDate: DateTime.now(),
                       initialDate: DateTime.now(),
                       lastDate: DateTime.now().add(Duration(days: 365)));
+
+                  if (newDate != null) {
+                    setState(() {
+                      dataController.text =
+                          DateFormat('dd/MM/yyyy').format(newDate);
+                    });
+                  }
                 },
                 decoration: InputDecoration(
                     filled: true,
