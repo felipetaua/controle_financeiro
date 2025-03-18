@@ -13,10 +13,11 @@ class _addNavButtonState extends State<addNavButton> {
   TextEditingController gastosController = TextEditingController();
   TextEditingController categoriaController = TextEditingController();
   TextEditingController dataController = TextEditingController();
+  DateTime selectData = DateTime.now();
 
   @override
   void initState() {
-    dataController.text = DateFormat('dd/MM/yy').format(DateTime.now());
+    dataController.text = DateFormat('dd/MM/yyyy').format(DateTime.now());
     super.initState();
   }
 
@@ -88,13 +89,14 @@ class _addNavButtonState extends State<addNavButton> {
                   DateTime? newDate = await showDatePicker(
                       context: context,
                       firstDate: DateTime.now(),
-                      initialDate: DateTime.now(),
+                      initialDate: selectData,
                       lastDate: DateTime.now().add(Duration(days: 365)));
 
                   if (newDate != null) {
                     setState(() {
                       dataController.text =
                           DateFormat('dd/MM/yyyy').format(newDate);
+                      selectData = newDate;
                     });
                   }
                 },
