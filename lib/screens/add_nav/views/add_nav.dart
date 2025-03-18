@@ -71,21 +71,45 @@ class _addNavButtonState extends State<addNavButton> {
                       context: context,
                       builder: (ctx) {
                         return AlertDialog(
+                          title: const Text('Criando uma Categoria'),
                           content: Column(
+                            mainAxisSize: MainAxisSize.min,
                             children: [
                               TextFormField(
                                 // controller: dataController,
-                                readOnly: true,
                                 textAlignVertical: TextAlignVertical.center,
                                 decoration: InputDecoration(
                                     filled: true,
                                     fillColor: Colors.white,
-                                    prefixIcon: const Icon(
-                                      FontAwesomeIcons.calendar,
-                                      size: 16,
-                                      color: Colors.grey,
-                                    ),
                                     hintText: ('Nome'),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                        borderSide: BorderSide.none)),
+                              ),
+                              SizedBox(
+                                height: 16,
+                              ),
+                              TextFormField(
+                                // controller: dataController,
+                                textAlignVertical: TextAlignVertical.center,
+                                decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    hintText: ('Icone'),
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                        borderSide: BorderSide.none)),
+                              ),
+                              SizedBox(
+                                height: 16,
+                              ),
+                              TextFormField(
+                                // controller: dataController,
+                                textAlignVertical: TextAlignVertical.center,
+                                decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    hintText: ('Cor'),
                                     border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(12),
                                         borderSide: BorderSide.none)),
