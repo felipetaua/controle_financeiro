@@ -16,6 +16,16 @@ class _addNavButtonState extends State<addNavButton> {
   TextEditingController dataController = TextEditingController();
   DateTime selectData = DateTime.now();
 
+  List<String> myCategoriesIcons = [
+    'entertainment',
+    'food',
+    'home',
+    'pet',
+    'shopping',
+    'tech',
+    'travel'
+  ];
+
   @override
   void initState() {
     dataController.text = DateFormat('dd/MM/yyyy').format(DateTime.now());
@@ -103,7 +113,7 @@ class _addNavButtonState extends State<addNavButton> {
                                     });
                                   },
                                   textAlignVertical: TextAlignVertical.center,
-                                  decoration: const InputDecoration(
+                                  decoration: InputDecoration(
                                       isDense: true,
                                       filled: true,
                                       suffixIcon: Icon(
@@ -113,19 +123,34 @@ class _addNavButtonState extends State<addNavButton> {
                                       fillColor: Colors.white,
                                       hintText: ('Icone'),
                                       border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(12)),
+                                          borderRadius: isExpanded
+                                              ? const BorderRadius.vertical(
+                                                  top: Radius.circular(12))
+                                              : BorderRadius.circular(12),
                                           borderSide: BorderSide.none)),
                                 ),
                                 isExpanded
                                     ? Container(
-                                        width: double.infinity,
+                                        width:
+                                            MediaQuery.of(context).size.width,
                                         height: 200,
                                         decoration: const BoxDecoration(
                                             color: Colors.white,
                                             borderRadius: BorderRadius.vertical(
                                                 bottom: Radius.circular(12))),
-                                      )
+                                        child: ListView.builder(
+                                          itemCount: myCategoriesIcons.length,
+                                          itemBuilder: (context, int i) {
+                                            return Container(
+                                              width: 50,
+                                              height: 50,
+                                              decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                          'assets/categorias/${myCategoriesIcons[i]}.png'))),
+                                            );
+                                          },
+                                        ))
                                     : Container(),
                                 const SizedBox(
                                   height: 16,
