@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
@@ -70,53 +71,81 @@ class _addNavButtonState extends State<addNavButton> {
                   showDialog(
                       context: context,
                       builder: (ctx) {
-                        return AlertDialog(
-                          title: const Text('Criando uma Categoria'),
-                          content: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              TextFormField(
-                                // controller: dataController,
-                                textAlignVertical: TextAlignVertical.center,
-                                decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    hintText: ('Nome'),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(12),
-                                        borderSide: BorderSide.none)),
-                              ),
-                              SizedBox(
-                                height: 16,
-                              ),
-                              TextFormField(
-                                // controller: dataController,
-                                textAlignVertical: TextAlignVertical.center,
-                                decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    hintText: ('Icone'),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(12),
-                                        borderSide: BorderSide.none)),
-                              ),
-                              SizedBox(
-                                height: 16,
-                              ),
-                              TextFormField(
-                                // controller: dataController,
-                                textAlignVertical: TextAlignVertical.center,
-                                decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    hintText: ('Cor'),
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(12),
-                                        borderSide: BorderSide.none)),
-                              ),
-                            ],
-                          ),
-                        );
+                        bool isExpanded = false;
+
+                        return StatefulBuilder(builder: (context, setState) {
+                          return AlertDialog(
+                            title: const Text('Criando uma Categoria'),
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                TextFormField(
+                                  // controller: dataController,
+                                  textAlignVertical: TextAlignVertical.center,
+                                  decoration: InputDecoration(
+                                      isDense: true,
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      hintText: ('Nome'),
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          borderSide: BorderSide.none)),
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                TextFormField(
+                                  // controller: dataController,
+                                  onTap: () {
+                                    setState(() {
+                                      isExpanded = !isExpanded;
+                                    });
+                                  },
+                                  textAlignVertical: TextAlignVertical.center,
+                                  decoration: const InputDecoration(
+                                      isDense: true,
+                                      filled: true,
+                                      suffixIcon: Icon(
+                                        CupertinoIcons.chevron_down,
+                                        size: 12,
+                                      ),
+                                      fillColor: Colors.white,
+                                      hintText: ('Icone'),
+                                      border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.vertical(
+                                              top: Radius.circular(12)),
+                                          borderSide: BorderSide.none)),
+                                ),
+                                isExpanded
+                                    ? Container(
+                                        width: double.infinity,
+                                        height: 200,
+                                        decoration: const BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.vertical(
+                                                bottom: Radius.circular(12))),
+                                      )
+                                    : Container(),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                TextFormField(
+                                  // controller: dataController,
+                                  textAlignVertical: TextAlignVertical.center,
+                                  decoration: InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      hintText: ('Cor'),
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          borderSide: BorderSide.none)),
+                                ),
+                              ],
+                            ),
+                          );
+                        });
                       });
                 },
                 decoration: InputDecoration(
