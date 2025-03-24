@@ -94,7 +94,7 @@ class _addNavButtonState extends State<addNavButton> {
                             builder: (ctx) {
                               bool isExpanded = false;
                               String iconSelected = '';
-                              late Color categoryColor;
+                              late Color categoryColor = Colors.white;
 
                               return StatefulBuilder(
                                   builder: (context, setState) {
@@ -242,8 +242,8 @@ class _addNavButtonState extends State<addNavButton> {
                                                           height: 50,
                                                           child: TextButton(
                                                               onPressed: () {
-                                                                print(
-                                                                    categoryColor);
+                                                                // print(
+                                                                //     categoryColor);
                                                                 Navigator.pop(
                                                                     ctx2);
                                                               },
@@ -273,8 +273,7 @@ class _addNavButtonState extends State<addNavButton> {
                                               TextAlignVertical.center,
                                           decoration: InputDecoration(
                                               filled: true,
-                                              fillColor:
-                                                  categoryColor ?? Colors.white,
+                                              fillColor: categoryColor,
                                               hintText: ('Cor'),
                                               border: OutlineInputBorder(
                                                   borderRadius:
