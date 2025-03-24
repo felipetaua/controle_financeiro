@@ -280,6 +280,27 @@ class _addNavButtonState extends State<addNavButton> {
                                                       BorderRadius.circular(12),
                                                   borderSide: BorderSide.none)),
                                         ),
+                                        const SizedBox(
+                                          height: 16,
+                                        ),
+                                        SizedBox(
+                                          width: double.infinity,
+                                          height: kToolbarHeight,
+                                          child: TextButton(
+                                              onPressed: () {},
+                                              style: TextButton.styleFrom(
+                                                  backgroundColor: Colors.black,
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12))),
+                                              child: const Text(
+                                                'Salvar',
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.white),
+                                              )),
+                                        )
                                       ],
                                     ),
                                   ),
