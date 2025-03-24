@@ -236,7 +236,10 @@ class _addNavButtonState extends State<addNavButton> {
                                                               double.infinity,
                                                           height: 50,
                                                           child: TextButton(
-                                                              onPressed: () {},
+                                                              onPressed: () {
+                                                                Navigator.pop(
+                                                                    ctx2);
+                                                              },
                                                               style: TextButton.styleFrom(
                                                                   backgroundColor:
                                                                       Colors
