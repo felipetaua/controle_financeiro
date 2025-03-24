@@ -217,10 +217,47 @@ class _addNavButtonState extends State<addNavButton> {
                                         TextFormField(
                                           // controller: dataController,
                                           onTap: () {
-                                            ColorPicker(
-                                              pickerColor: Colors.blue,
-                                              onColorChanged: (value) {},
-                                            );
+                                            showDialog(
+                                                context: context,
+                                                builder: (ctx2) {
+                                                  return AlertDialog(
+                                                    content: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      children: [
+                                                        ColorPicker(
+                                                          pickerColor:
+                                                              Colors.blue,
+                                                          onColorChanged:
+                                                              (value) {},
+                                                        ),
+                                                        SizedBox(
+                                                          width:
+                                                              double.infinity,
+                                                          height: 50,
+                                                          child: TextButton(
+                                                              onPressed: () {},
+                                                              style: TextButton.styleFrom(
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .black,
+                                                                  shape: RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12))),
+                                                              child: const Text(
+                                                                'Salvar',
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        20,
+                                                                    color: Colors
+                                                                        .white),
+                                                              )),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                });
                                           },
                                           textAlignVertical:
                                               TextAlignVertical.center,
