@@ -27,8 +27,6 @@ class _addNavButtonState extends State<addNavButton> {
     'travel'
   ];
 
-  String iconSelected = '';
-
   @override
   void initState() {
     dataController.text = DateFormat('dd/MM/yyyy').format(DateTime.now());
@@ -95,6 +93,8 @@ class _addNavButtonState extends State<addNavButton> {
                             context: context,
                             builder: (ctx) {
                               bool isExpanded = false;
+                              String iconSelected = '';
+                              late Color categoryColor;
 
                               return StatefulBuilder(
                                   builder: (context, setState) {
@@ -229,7 +229,12 @@ class _addNavButtonState extends State<addNavButton> {
                                                           pickerColor:
                                                               Colors.blue,
                                                           onColorChanged:
-                                                              (value) {},
+                                                              (value) {
+                                                            setState(() {
+                                                              categoryColor =
+                                                                  value;
+                                                            });
+                                                          },
                                                         ),
                                                         SizedBox(
                                                           width:
@@ -237,6 +242,8 @@ class _addNavButtonState extends State<addNavButton> {
                                                           height: 50,
                                                           child: TextButton(
                                                               onPressed: () {
+                                                                print(
+                                                                    categoryColor);
                                                                 Navigator.pop(
                                                                     ctx2);
                                                               },
@@ -266,7 +273,8 @@ class _addNavButtonState extends State<addNavButton> {
                                               TextAlignVertical.center,
                                           decoration: InputDecoration(
                                               filled: true,
-                                              fillColor: Colors.white,
+                                              fillColor:
+                                                  categoryColor ?? Colors.white,
                                               hintText: ('Cor'),
                                               border: OutlineInputBorder(
                                                   borderRadius:
