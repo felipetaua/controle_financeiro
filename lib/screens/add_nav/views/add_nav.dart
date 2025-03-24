@@ -138,7 +138,10 @@ class _addNavButtonState extends State<addNavButton> {
                                             color: Colors.white,
                                             borderRadius: BorderRadius.vertical(
                                                 bottom: Radius.circular(12))),
-                                        child: ListView.builder(
+                                        child: GridView.builder(
+                                          gridDelegate:
+                                              SliverGridDelegateWithFixedCrossAxisCount(
+                                                  crossAxisCount: 3),
                                           itemCount: myCategoriesIcons.length,
                                           itemBuilder: (context, int i) {
                                             return Container(
