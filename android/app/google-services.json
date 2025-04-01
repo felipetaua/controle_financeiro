@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "911532524791",
+    "firebase_url": "https://finan-4854e-default-rtdb.firebaseio.com",
+    "project_id": "finan-4854e",
+    "storage_bucket": "finan-4854e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911532524791:android:c58255a683c2f20a187ff2",
+        "android_client_info": {
+          "package_name": "com.exemple.controle_fianceiro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvNFNTp2AhuTfSodOUEedt5yjuhPqDuzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
