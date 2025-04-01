@@ -1,3 +1,5 @@
+import 'package:expense_repository/src/entities/entities.dart';
+
 class Category {
   String categoryId;
   String name;
