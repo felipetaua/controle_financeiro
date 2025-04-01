@@ -361,7 +361,10 @@ class _addNavButtonState extends State<addNavButton> {
                 width: double.infinity,
                 height: kToolbarHeight,
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      // criadno o objeto categoria e POP
+                      Navigator.pop(context);
+                    },
                     style: TextButton.styleFrom(
                         backgroundColor: Colors.black,
                         shape: RoundedRectangleBorder(
