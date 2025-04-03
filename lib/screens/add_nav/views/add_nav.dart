@@ -1,8 +1,12 @@
+import 'package:controle_financeiro/screens/add_nav/blocs/create_categorybloc/create_category_bloc.dart';
+import 'package:expense_repository/expense_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
+import 'package:uuid/uuid.dart';
 
 class addNavButton extends StatefulWidget {
   const addNavButton({super.key});
@@ -94,7 +98,14 @@ class _addNavButtonState extends State<addNavButton> {
                             builder: (ctx) {
                               bool isExpanded = false;
                               String iconSelected = '';
-                              late Color categoryColor = Colors.white;
+                              Color categoryColor = Colors.white;
+
+                              TextEditingController categoryNameController =
+                                  TextEditingController();
+                              TextEditingController categoryIconController =
+                                  TextEditingController();
+                              TextEditingController categoryColorController =
+                                  TextEditingController();
 
                               return StatefulBuilder(
                                   builder: (context, setState) {
@@ -106,7 +117,7 @@ class _addNavButtonState extends State<addNavButton> {
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         TextFormField(
-                                          // controller: dataController,
+                                          controller: categoryNameController,
                                           textAlignVertical:
                                               TextAlignVertical.center,
                                           decoration: InputDecoration(
@@ -123,7 +134,7 @@ class _addNavButtonState extends State<addNavButton> {
                                           height: 16,
                                         ),
                                         TextFormField(
-                                          // controller: dataController,
+                                          controller: categoryIconController,
                                           onTap: () {
                                             setState(() {
                                               isExpanded = !isExpanded;
@@ -215,7 +226,7 @@ class _addNavButtonState extends State<addNavButton> {
                                           height: 16,
                                         ),
                                         TextFormField(
-                                          // controller: dataController,
+                                          controller: categoryColorController,
                                           onTap: () {
                                             showDialog(
                                                 context: context,
@@ -363,7 +374,15 @@ class _addNavButtonState extends State<addNavButton> {
                 child: TextButton(
                     onPressed: () {
                       // criadno o objeto categoria e POP
-                      Navigator.pop(context);
+                      Category category = Category.empty;
+                      category.categoryId = const Uuid().v1();
+                      category.name = categoryNameController.text;
+                      category.icon = iconSelected;
+                      category.color = categoryColor.toString();
+                      context
+                          .read<CreateCategoryBloc>()
+                          .add(CreateCategory(category));
+                      // Navigator.pop(context);
                     },
                     style: TextButton.styleFrom(
                         backgroundColor: Colors.black,
