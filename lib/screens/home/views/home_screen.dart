@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:controle_financeiro/screens/add_nav/views/add_nav.dart';
 import 'package:controle_financeiro/screens/home/views/main_screen.dart';
 import 'package:controle_financeiro/screens/stats/stats.dart';
+import 'package:expense_repository/expense_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -54,8 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => const addNavButton(),
+            MaterialPageRoute<Expense>(
+              builder: (BuildContext context) => MultiBlocProvider(
+                create: (context) => CreateCategoryBloc(FirebaseExpenseRepo()),
+                child: const addNavButton(),
+              )(),
             ),
           );
         },
