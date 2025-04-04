@@ -8,14 +8,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
-class addNavButton extends StatefulWidget {
-  const addNavButton({super.key});
+class AddNavButton extends StatefulWidget {
+  const AddNavButton({super.key});
 
   @override
-  State<addNavButton> createState() => _addNavButtonState();
+  State<AddNavButton> createState() => _AddNavButtonState();
 }
 
-class _addNavButtonState extends State<addNavButton> {
+class _AddNavButtonState extends State<AddNavButton> {
   TextEditingController gastosController = TextEditingController();
   TextEditingController categoriaController = TextEditingController();
   TextEditingController dataController = TextEditingController();
@@ -100,7 +100,7 @@ class _addNavButtonState extends State<addNavButton> {
                             builder: (ctx) {
                               bool isExpanded = false;
                               String iconSelected = '';
-                              Color categoryColor = Colors.white;
+                              late Color categoryColor = Colors.white;
                               TextEditingController categoryNameController =
                                   TextEditingController();
                               TextEditingController categoryIconController =

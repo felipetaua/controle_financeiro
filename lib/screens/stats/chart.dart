@@ -124,8 +124,8 @@ class _MyChartState extends State<MyChart> {
     }
     return SideTitleWidget(
       space: 15,
-      child: text,
       meta: meta,
+      child: text,
     );
   }
 
@@ -151,8 +151,8 @@ class _MyChartState extends State<MyChart> {
     }
     return SideTitleWidget(
       space: 0,
-      child: Text(text, style: style),
       meta: meta,
+      child: Text(text, style: style),
     );
   }
 }

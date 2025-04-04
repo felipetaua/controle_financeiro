@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
             MaterialPageRoute<Expense>(
               builder: (BuildContext context) => BlocProvider(
                 create: (context) => CreateCategoryBloc(FirebaseExpenseRepo()),
-                child: const addNavButton(),
+                child: const AddNavButton(),
               ),
             ),
           );
