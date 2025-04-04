@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:911532524791:android:c58255a683c2f20a187ff2",
+        "mobilesdk_app_id": "1:911532524791:android:b8de4a7ed5cd6994187ff2",
         "android_client_info": {
-          "package_name": "com.exemple.controle_fianceiro"
+          "package_name": "com.example.controle_financeiro"
         }
       },
       "oauth_client": [],
