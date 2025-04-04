@@ -21,6 +21,8 @@ class _addNavButtonState extends State<addNavButton> {
   TextEditingController dataController = TextEditingController();
   DateTime selectData = DateTime.now();
 
+  bool isLoading = false;
+
   List<String> myCategoriesIcons = [
     'entertainment',
     'food',
@@ -113,7 +115,11 @@ class _addNavButtonState extends State<addNavButton> {
                                   listener: (context, state) {
                                     if (state is CreateCategorySucess) {
                                       Navigator.pop(ctx);
-                                    } else {}
+                                    } else if (state is CreateCategoryLoading) {
+                                      setState(() {
+                                        isLoading == true;
+                                      });
+                                    }
                                   },
                                   child:
                                       StatefulBuilder(builder: (ctx, setState) {
@@ -319,43 +325,48 @@ class _addNavButtonState extends State<addNavButton> {
                                             SizedBox(
                                               width: double.infinity,
                                               height: kToolbarHeight,
-                                              child: TextButton(
-                                                  onPressed: () {
-                                                    // criadno o objeto categoria e POP
-                                                    Category category =
-                                                        Category.empty;
-                                                    category.categoryId =
-                                                        const Uuid().v1();
-                                                    category.name =
-                                                        categoryNameController
-                                                            .text;
-                                                    category.icon =
-                                                        iconSelected;
-                                                    category.color =
-                                                        categoryColor
-                                                            .toString();
-                                                    context
-                                                        .read<
-                                                            CreateCategoryBloc>()
-                                                        .add(CreateCategory(
-                                                            category));
-                                                    // Navigator.pop(context);
-                                                  },
-                                                  style: TextButton.styleFrom(
-                                                      backgroundColor:
-                                                          Colors.black,
-                                                      shape:
-                                                          RoundedRectangleBorder(
+                                              child: isLoading == true
+                                                  ? const Center(
+                                                      child:
+                                                          CircularProgressIndicator(),
+                                                    )
+                                                  : TextButton(
+                                                      onPressed: () {
+                                                        // criadno o objeto categoria e POP
+                                                        Category category =
+                                                            Category.empty;
+                                                        category.categoryId =
+                                                            const Uuid().v1();
+                                                        category.name =
+                                                            categoryNameController
+                                                                .text;
+                                                        category.icon =
+                                                            iconSelected;
+                                                        category.color =
+                                                            categoryColor
+                                                                .toString();
+                                                        context
+                                                            .read<
+                                                                CreateCategoryBloc>()
+                                                            .add(CreateCategory(
+                                                                category));
+                                                        // Navigator.pop(context);
+                                                      },
+                                                      style: TextButton.styleFrom(
+                                                          backgroundColor:
+                                                              Colors.black,
+                                                          shape: RoundedRectangleBorder(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
                                                                           12))),
-                                                  child: const Text(
-                                                    'Salvar',
-                                                    style: TextStyle(
-                                                        fontSize: 20,
-                                                        color: Colors.white),
-                                                  )),
+                                                      child: const Text(
+                                                        'Salvar',
+                                                        style: TextStyle(
+                                                            fontSize: 20,
+                                                            color:
+                                                                Colors.white),
+                                                      )),
                                             )
                                           ],
                                         ),
