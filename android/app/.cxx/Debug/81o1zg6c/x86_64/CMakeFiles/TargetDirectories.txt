@@ -1,0 +1,2 @@
+C:/app/controleFinanceiroApp/controle_financeiro/android/app/.cxx/Debug/81o1zg6c/x86_64/CMakeFiles/edit_cache.dir
+C:/app/controleFinanceiroApp/controle_financeiro/android/app/.cxx/Debug/81o1zg6c/x86_64/CMakeFiles/rebuild_cache.dir
